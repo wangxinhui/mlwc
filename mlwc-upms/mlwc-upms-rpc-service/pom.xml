@@ -8,8 +8,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mlwc</groupId>
     <artifactId>mlwc-upms-rpc-service</artifactId>
-    <packaging>war</packaging>
-    <name>mlwc-upms-rpc-service Maven Webapp</name>
+    <packaging>jar</packaging>
+    <name>mlwc-upms-rpc-service</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -28,7 +28,7 @@
         <profile>
             <id>dev</id>
             <properties>
-                <environment>dev</environment>
+                <evn>dev</evn>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -37,24 +37,33 @@
         <profile>
             <id>test</id>
             <properties>
-                <environment>test</environment>
+                <evn>test</evn>
             </properties>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
-                <environment>prod</environment>
+                <evn>prod</evn>
             </properties>
         </profile>
     </profiles>
     <build>
         <finalName>mlwc-upms-rpc-service</finalName>
         <filters>
-            <filter></filter>
+            <filter>src/main/resources/profiles/${evn}.properties</filter>
         </filters>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
     </build>

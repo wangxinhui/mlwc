@@ -9,7 +9,7 @@
     <groupId>com.mlwc</groupId>
     <artifactId>mlwc-upms-rpc-api</artifactId>
     <packaging>jar</packaging>
-    <name>mlwc-upms-rpc-api Maven Webapp</name>
+    <name>mlwc-upms-rpc-api</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>

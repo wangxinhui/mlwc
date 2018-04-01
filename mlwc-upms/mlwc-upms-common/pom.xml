@@ -9,7 +9,7 @@
     <groupId>com.mlwc</groupId>
     <artifactId>mlwc-upms-common</artifactId>
     <packaging>jar</packaging>
-    <name>mlwc-upms-common Maven Webapp</name>
+    <name>mlwc-upms-common</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>

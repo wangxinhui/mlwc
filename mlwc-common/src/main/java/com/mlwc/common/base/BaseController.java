@@ -1,6 +1,6 @@
 package com.mlwc.common.base;
 
-import com.zheng.common.util.PropertiesFileUtil;
+import com.mlwc.common.util.PropertiesFileUtil;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.session.InvalidSessionException;
 import org.slf4j.Logger;

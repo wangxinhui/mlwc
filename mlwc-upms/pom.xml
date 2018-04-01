@@ -19,7 +19,7 @@
     <module>mlwc-upms-rpc-service</module>
     <module>mlwc-upms-server</module>
   </modules>
-  <name>mlwc-upms Maven Webapp</name>
+  <name>mlwc-upms</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>

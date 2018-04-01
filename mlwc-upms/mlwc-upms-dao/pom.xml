@@ -8,8 +8,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mlwc</groupId>
     <artifactId>mlwc-upms-dao</artifactId>
-    <packaging>war</packaging>
-    <name>mlwc-upms-dao Maven Webapp</name>
+    <packaging>jar</packaging>
+    <name>mlwc-upms-dao</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
