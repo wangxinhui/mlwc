@@ -15,6 +15,6 @@
     <dubbo:consumer check="false"/>
 
     <!-- 用户 -->
-    <dubbo:reference id="upmsUserService" interface="com.mlwc.upms.rpc.api.MlwcUserService" mock="true"/>
+    <dubbo:reference id="mlwcUserService" interface="com.mlwc.upms.rpc.api.MlwcUserService" mock="true"/>
 
 </beans>

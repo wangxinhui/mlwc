@@ -17,7 +17,7 @@
     <!-- 引入jdbc配置文件 -->
     <!--<context:property-placeholder location="classpath:jdbc.properties" />-->
     <!-- 配置进行解密  -->
-    <bean id="propertyConfigurer" class="com.mlwc.common.plugin.EncryptPropertyPlaceholderConfigurer">
+    <bean id="propertyConfigurer" class="com.mlwc.common.plugin.RSAEncryptPropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:jdbc.properties</value>
