@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>com.mlwc</groupId>
-            <artifactId>mlwc-upms-rpc-api</artifactId>
+            <artifactId>mlwc-upms-getway</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
