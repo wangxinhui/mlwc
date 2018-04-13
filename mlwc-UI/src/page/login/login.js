@@ -1,5 +1,5 @@
 layui.config({
-	base : "js/"
+	base : BASE_PATH + "/js/"
 }).use(['form','layer'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -15,7 +15,15 @@ layui.config({
 	
 	//登录按钮事件
 	form.on("submit(login)",function(data){
-		window.location.href = "../../index.html";
+		$.ajax({
+			url:BASE_PATH + 'sso/user',
+			type:'post',
+			data:{
+				username:$("#username").val(),
+				password:$("#password").val()
+			}
+		})
+		window.location.href = BASE_PATH + "/sso/user";
 		return false;
 	})
 })
