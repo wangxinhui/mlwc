@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
 * MlwcPermissionService实现
 * Created by shuzheng on 2018/3/30.
@@ -26,4 +28,8 @@ public class MlwcPermissionServiceImpl extends BaseServiceImpl<MlwcPermissionMap
     @Autowired
     MlwcPermissionMapper mlwcPermissionMapper;
 
+    @Override
+    public List<MlwcPermission> selectPermissionsByRoleId(List<String> roleIds) {
+        return mlwcPermissionMapper.selectPermissionsByRoleId(roleIds);
+    }
 }

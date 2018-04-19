@@ -17,4 +17,16 @@
     <!-- 用户 -->
     <dubbo:reference id="mlwcUserService" interface="com.mlwc.upms.rpc.api.MlwcUserService" mock="true"/>
 
+    <dubbo:reference id="mlwcUserRoleService" interface="com.mlwc.upms.rpc.api.MlwcUserRoleService" mock="true"/>
+
+    <dubbo:reference id="mlwcRoleService" interface="com.mlwc.upms.rpc.api.MlwcRoleService" mock="true"/>
+
+    <dubbo:reference id="mlwcRolePermissionService" interface="com.mlwc.upms.rpc.api.MlwcRolePermissionService" mock="true"/>
+
+    <dubbo:reference id="mlwcPermissionService" interface="com.mlwc.upms.rpc.api.MlwcPermissionService" mock="true"/>
+
+    <dubbo:reference id="mlwcUserPersissionService" interface="com.mlwc.upms.rpc.api.MlwcUserPersissionService" mock="true"/>
+
+    <dubbo:reference id="mlwcLogService" interface="com.mlwc.upms.rpc.api.MlwcLogService" mock="true"/>
+
 </beans>

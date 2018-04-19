@@ -13,7 +13,7 @@ import java.security.spec.InvalidKeySpecException;
  */
 public class RSAEncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
 
-	private String[] encryptPropNames = {"master.jdbc.password","slave.jdbc.password"};
+	private String[] encryptPropNames = {"master.jdbc.password","slave.jdbc.password","redis.password"};
 
 	@Override
 	protected String convertProperty(String propertyName, String propertyValue) {

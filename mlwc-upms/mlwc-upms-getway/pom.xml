@@ -28,6 +28,13 @@
             <artifactId>mlwc-upms-rpc-api</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!-- servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>mlwc-upms-getway</finalName>

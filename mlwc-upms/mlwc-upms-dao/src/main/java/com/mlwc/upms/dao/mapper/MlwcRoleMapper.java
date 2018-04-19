@@ -27,4 +27,6 @@ public interface MlwcRoleMapper {
     int updateByPrimaryKeySelective(MlwcRole record);
 
     int updateByPrimaryKey(MlwcRole record);
+
+    List<MlwcRole> selectRolesByUserId(String userId);
 }

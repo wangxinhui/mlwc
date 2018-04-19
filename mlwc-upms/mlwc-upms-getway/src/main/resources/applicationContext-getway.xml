@@ -12,19 +12,6 @@
           http://www.springframework.org/schema/task/spring-task.xsd">
 
 	<!-- 装载service -->
-	<context:component-scan base-package="**.service" />
-
-	<!-- 装载自定义bean -->
-	<context:component-scan base-package="**.*" use-default-filters="false">
-		<context:include-filter type="assignable" expression="com.mlwc.common.base.BaseInterface"></context:include-filter>
-	</context:component-scan>
-
-	<!-- 启动时初始化Spring上下文环境工具类 -->
-	<bean id="springContextUtil" class="com.mlwc.common.util.SpringContextUtil"></bean>
-
-
-	<!-- 启动任务注解 -->
-	<task:annotation-driven />
-	<context:component-scan base-package="**.task" />
+	<context:component-scan base-package="com.mlwc.upms.getway.auth" />
 
 </beans>

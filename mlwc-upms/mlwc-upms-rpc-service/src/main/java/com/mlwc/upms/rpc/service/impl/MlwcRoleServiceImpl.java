@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
 * MlwcRoleService实现
 * Created by shuzheng on 2018/3/30.
@@ -26,4 +28,9 @@ public class MlwcRoleServiceImpl extends BaseServiceImpl<MlwcRoleMapper, MlwcRol
     @Autowired
     MlwcRoleMapper mlwcRoleMapper;
 
+
+    @Override
+    public List<MlwcRole> selectRolesByUserId(String userId) {
+        return mlwcRoleMapper.selectRolesByUserId(userId);
+    }
 }

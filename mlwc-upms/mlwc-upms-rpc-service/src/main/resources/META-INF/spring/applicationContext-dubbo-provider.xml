@@ -16,4 +16,22 @@
     <bean id="mlwcUserService" class="com.mlwc.upms.rpc.service.impl.MlwcUserServiceImpl"/>
     <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcUserService" ref="mlwcUserService" timeout="1000"/>
 
+    <bean id="mlwcUserRoleService" class="com.mlwc.upms.rpc.service.impl.MlwcUserRoleServiceImpl"/>
+    <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcUserRoleService" ref="mlwcUserRoleService" timeout="1000"/>
+
+    <bean id="mlwcUserPersissionService" class="com.mlwc.upms.rpc.service.impl.MlwcUserPersissionServiceImpl"/>
+    <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcUserPersissionService" ref="mlwcUserPersissionService" timeout="1000"/>
+
+    <bean id="mlwcRoleService" class="com.mlwc.upms.rpc.service.impl.MlwcRoleServiceImpl"/>
+    <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcRoleService" ref="mlwcRoleService" timeout="1000"/>
+
+    <bean id="mlwcRolePermissionService" class="com.mlwc.upms.rpc.service.impl.MlwcRolePermissionServiceImpl"/>
+    <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcRolePermissionService" ref="mlwcRolePermissionService" timeout="1000"/>
+
+    <bean id="mlwcPermissionService" class="com.mlwc.upms.rpc.service.impl.MlwcPermissionServiceImpl"/>
+    <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcPermissionService" ref="mlwcPermissionService" timeout="1000"/>
+
+    <bean id="mlwcLogService" class="com.mlwc.upms.rpc.service.impl.MlwcLogServiceImpl"/>
+    <dubbo:service interface="com.mlwc.upms.rpc.api.MlwcLogService" ref="mlwcLogService" timeout="1000"/>
+
 </beans>

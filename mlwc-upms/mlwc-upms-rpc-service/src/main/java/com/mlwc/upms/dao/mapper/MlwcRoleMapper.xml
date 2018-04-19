@@ -225,5 +225,12 @@
       orders = #{orders,jdbcType=BIGINT}
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
+  <select id="selectRolesByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mlwc_role
+    where role_id = in (select role_id from mlwc_user_role where user_id = #{userId,jdbcType=VARCHAR})
+  </select>
+
   <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
 </mapper>

@@ -303,5 +303,18 @@
       orders = #{orders,jdbcType=BIGINT}
     where permission_id = #{permissionId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectPermissionsByRoleId" resultMap="BaseResultMap" parameterType="java.util.List">
+    SELECT
+    <include refid="Base_Column_List" />
+    from mlwc_permission
+    where permission_id in (
+    SELECT permission_id from mlwc_role_permission where role_id in
+    <foreach collection="list" item="roleId" index="index" open="(" close=")" separator=",">
+      #{roleId}
+    </foreach>
+    )
+  </select>
+
   <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
 </mapper>
