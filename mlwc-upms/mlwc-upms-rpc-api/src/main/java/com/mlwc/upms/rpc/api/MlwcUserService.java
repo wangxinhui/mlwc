@@ -10,4 +10,5 @@ import com.mlwc.upms.dao.model.MlwcUserExample;
 */
 public interface MlwcUserService extends BaseService<MlwcUser, MlwcUserExample> {
 
+
 }

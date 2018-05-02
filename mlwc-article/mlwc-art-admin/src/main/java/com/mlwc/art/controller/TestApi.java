@@ -4,6 +4,7 @@ import com.mlwc.common.rest.JsonResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +16,12 @@ import java.util.Map;
 @RequestMapping("/api")
 public class TestApi {
     @RequestMapping("/test")
+    @ResponseBody
     public JsonResponse test1(
-            @RequestParam(value = "username") String username,
-            @RequestParam(value = "password") String password) {
+            @RequestParam(value = "username",required = false) String username,
+            @RequestParam(value = "password",required = false) String password) {
         Map<String, String> map = new HashMap<>();
-        map.put("username", username);
+        map.put("username", "123");
         map.put("password", password);
         return new JsonResponse().success(map);
     }

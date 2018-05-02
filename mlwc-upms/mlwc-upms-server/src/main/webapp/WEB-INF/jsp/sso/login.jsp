@@ -22,7 +22,6 @@
 <div class="video_mask"></div>
 <div class="login">
     <h1>layuiCMS-管理登录</h1>
-    <form class="layui-form">
         <div class="layui-form-item">
             <input class="layui-input" id="username" name="username" placeholder="用户名" lay-verify="required" type="text" autocomplete="off">
         </div>
@@ -33,11 +32,11 @@
             <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
             <div class="code"><img src="${basePath}/resources/mlwc-ui/images/code.jpg" width="116" height="36"></div>
         </div>
-        <button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>
-    </form>
+        <button class="layui-btn login_btn" onclick="login()">登录</button>
 </div>
+<script>var BASE_PATH = '${basePath}'</script>
 <script type="text/javascript" src="${basePath}/resources/mlwc-ui/layui/layui.js"></script>
-<script type="text/javascript" src="${basePath}/resources/mlwc-ui/page/login/login.js"></script>
-<script>var BASE_PATH='${basePath}'</script>
+<script type="text/javascript" src="${basePath}/js/login/login.js"></script>
+
 </body>
 </html>
