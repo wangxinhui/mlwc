@@ -23,6 +23,8 @@ import java.lang.reflect.Method;
  */
 public class ApiInterceptor implements HandlerInterceptor {
 
+    public ApiInterceptor() {
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

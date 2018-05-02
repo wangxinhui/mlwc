@@ -10,6 +10,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <bean id="userRealm" class="com.mlwc.upms.getway.auth.UserRealm"/>
+    <bean id="sysCache" class="com.mlwc.upms.getway.auth.SysCache"/>
 
      <!--拦截器-->
     <mvc:interceptors>
@@ -23,9 +25,4 @@
             </bean>
         </mvc:interceptor>
     </mvc:interceptors>
-
-    <bean id="userRealm" class="com.mlwc.upms.getway.auth.UserRealm"/>
-
-    <bean id="sysCache" class="com.mlwc.upms.getway.auth.SysCache"/>
-
 </beans>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@Api(value = "user manager" ,description = "user manager")
+//@Api(value = "user manager" ,description = "user manager")
 @RequestMapping("/api/user")
 public class MlwcUserController {
 
