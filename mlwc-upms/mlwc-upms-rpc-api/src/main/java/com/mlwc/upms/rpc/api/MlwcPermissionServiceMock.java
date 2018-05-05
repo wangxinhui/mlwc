@@ -17,4 +17,9 @@ public class MlwcPermissionServiceMock extends BaseServiceMock<MlwcPermissionMap
     public List<MlwcPermission> selectPermissionsByRoleId(List<String> roleIds) {
         return null;
     }
+
+    @Override
+    public String selectPermissionsByUserId(Integer userId) {
+        return null;
+    }
 }

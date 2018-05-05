@@ -29,4 +29,6 @@ public interface MlwcPermissionMapper {
     int updateByPrimaryKey(MlwcPermission record);
 
     List<MlwcPermission> selectPermissionsByRoleId(List<String> roleIds);
+
+    List<MlwcPermission> selectPermissionsByUserId(Integer userId);
 }

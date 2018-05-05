@@ -13,4 +13,6 @@ import java.util.List;
 public interface MlwcPermissionService extends BaseService<MlwcPermission, MlwcPermissionExample> {
 
     List<MlwcPermission> selectPermissionsByRoleId(List<String> roleIds);
+
+    String selectPermissionsByUserId(Integer userId);
 }

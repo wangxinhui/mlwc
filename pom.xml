@@ -8,7 +8,6 @@
     <modules>
         <module>mlwc-common</module>
         <module>mlwc-upms</module>
-        <module>mlwc-UI</module>
         <module>mlwc-article</module>
     </modules>
     <packaging>pom</packaging>

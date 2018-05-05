@@ -316,5 +316,15 @@
     )
   </select>
 
+  <select id="selectPermissionsByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from
+    (SELECT p.*
+    FROM mlwc_user u LEFT JOIN mlwc_user_role ur ON u.user_id = ur.user_id
+    LEFT JOIN mlwc_role_permission rp ON ur.role_id = rp.role_id
+    LEFT JOIN mlwc_permission p ON rp.role_permission_id = p.permission_id
+    WHERE u.user_id = #{userId}) menu where find_in_set(pid,getChildList(0))
+  </select>
+
+
   <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
 </mapper>
