@@ -2,7 +2,8 @@
 SQLyog Trial v12.3.3 (64 bit)
 MySQL - 5.7.16 : Database - mlwc
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -138,3 +139,31 @@ CREATE TABLE `mlwc_user_role` (
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+/* 树形查询 */
+DELIMITER $$
+
+USE `mlwc`$$
+
+DROP FUNCTION IF EXISTS `getChildList`$$
+
+CREATE DEFINER=`mlwc`@`localhost` FUNCTION `getChildList`(rootId INT) RETURNS VARCHAR(1000) CHARSET utf8
+    DETERMINISTIC
+BEGIN
+    DECLARE sTemp VARCHAR(1000);
+    DECLARE sTempChild VARCHAR(1000);
+
+    SET sTemp = '$';
+    SET sTempChild = CAST(rootId AS CHAR);
+
+    WHILE sTempChild IS NOT NULL DO
+      SET sTemp = CONCAT(sTemp,',',sTempChild);
+      SELECT GROUP_CONCAT(permission_id) INTO sTempChild FROM mlwc_permission WHERE FIND_IN_SET(pid,sTempChild) >0;
+    END WHILE;
+    RETURN sTemp;
+  END$$
+
+DELIMITER ;
+
+
+
