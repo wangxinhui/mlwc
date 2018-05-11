@@ -1,5 +1,7 @@
 package com.mlwc.upms.getway.interceptor;
 
+import com.mlwc.common.rest.JsonResponse;
+import com.mlwc.common.util.SendUtils;
 import com.mlwc.upms.getway.annotation.Logical;
 import com.mlwc.upms.getway.annotation.RequiresPermissions;
 import com.mlwc.upms.getway.annotation.RequiresRoles;
@@ -10,12 +12,17 @@ import com.mlwc.upms.getway.exception.ExpiredTokenException;
 import com.mlwc.upms.getway.exception.UnauthorizedException;
 import com.mlwc.upms.getway.util.JwtSubject;
 import io.jsonwebtoken.ExpiredJwtException;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
 /**
@@ -27,21 +34,44 @@ public class ApiInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+        String reqURL = request.getRequestURI().toString();
+        String ip = request.getRemoteHost();
+
+        InputStream inputStream = request.getInputStream();
+        StringBuilder responseStrBuilder = new StringBuilder();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+        String inputStr ;
+        while ((inputStr=bufferedReader.readLine())!=null){
+            responseStrBuilder.append(inputStr);
+        }
+        String paramter = responseStrBuilder.toString();
+
+
         String userId = null;
         String token = request.getHeader("token");
         if (token == null) {
             token = request.getParameter("token");
         }
         try {
-
+            if (StringUtils.isBlank(token)) {
+                SendUtils.sendJson(response,new JsonResponse().failure("300"));
+                return false;
+            }
             userId = JwtSubject.getInstance().parseToken(token).getSubject();
         } catch (ExpiredJwtException var1) {
             JwtSubject.getInstance().expireToken(userId, token);
-            throw new ExpiredTokenException();
-        } catch (Exception e){
+            SendUtils.sendJson(response,new JsonResponse().failure("401"));
+            var1.printStackTrace();
+        } catch (ErrorTokenException e){
             e.printStackTrace();
-            throw new ErrorTokenException();
+            SendUtils.sendJson(response,new JsonResponse().failure("402"));
+//          throw new ErrorTokenException();
+            return false;
+        } catch (Exception e) {
+            SendUtils.sendJson(response,new JsonResponse().failure("402"));
+            e.printStackTrace();
+            return false;
         }
 
         if (!JwtSubject.getInstance().isValidToken(userId,token)){
