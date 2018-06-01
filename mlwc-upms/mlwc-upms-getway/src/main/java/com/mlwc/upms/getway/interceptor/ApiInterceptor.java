@@ -35,18 +35,6 @@ public class ApiInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-        String reqURL = request.getRequestURI().toString();
-        String ip = request.getRemoteHost();
-
-        InputStream inputStream = request.getInputStream();
-        StringBuilder responseStrBuilder = new StringBuilder();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-        String inputStr ;
-        while ((inputStr=bufferedReader.readLine())!=null){
-            responseStrBuilder.append(inputStr);
-        }
-        String paramter = responseStrBuilder.toString();
-
 
         String userId = null;
         String token = request.getHeader("token");

@@ -36,10 +36,10 @@ public class SSOController {
             @RequestParam(required = false, value = "password") String password) throws IOException {
         MlwcUserExample mlwcUserExample = new MlwcUserExample();
         if (StringUtils.isBlank(username)) {
-            return null;
+            return new JsonResponse().failure("401");
         }
         if (StringUtils.isBlank(password)) {
-            return null;
+            return new JsonResponse().failure("401");
         }
         mlwcUserExample.createCriteria().andUsernameEqualTo(username).andPasswordEqualTo(password);
 //        mlwcUserExample.createCriteria().andPasswordEqualTo(password);
