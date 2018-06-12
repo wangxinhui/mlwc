@@ -1,5 +1,6 @@
 package com.mlwc.upms.server.controller;
 
+import com.alibaba.dubbo.config.support.Parameter;
 import com.mlwc.common.rest.JsonResponse;
 import com.mlwc.upms.dao.model.MlwcUser;
 import com.mlwc.upms.dao.model.MlwcUserExample;
@@ -62,7 +63,7 @@ public class MlwcUserController {
     public JsonResponse saveUser(@ModelAttribute MlwcUser mlwcUser) {
         int res;
         if (mlwcUser.getUserId() > 0) {
-            res = mlwcUserService.updateByPrimaryKey(mlwcUser);
+            res = mlwcUserService.updateByPrimaryKeySelective(mlwcUser);
         } else {
             res = mlwcUserService.insert(mlwcUser);
         }
@@ -71,5 +72,18 @@ public class MlwcUserController {
         }
         return new JsonResponse().failure();
     }
+
+    @RequestMapping("/del")
+    @ResponseBody
+    public JsonResponse delUser(@RequestParam(value = "user_id")String ids) {
+        int res = mlwcUserService.deleteByPrimaryKeys(ids);
+        if (res > 0) {
+            return new JsonResponse().success();
+        } else {
+            return new JsonResponse().failure();
+        }
+    }
+
+
 
 }

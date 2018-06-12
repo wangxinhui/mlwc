@@ -95,7 +95,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from mlwc_user
+    UPDATE from mlwc_user set locked = 1
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.mlwc.upms.dao.model.MlwcUserExample">

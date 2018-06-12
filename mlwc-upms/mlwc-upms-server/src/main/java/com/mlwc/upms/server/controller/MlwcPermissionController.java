@@ -23,8 +23,8 @@ public class MlwcPermissionController {
     @RequestMapping("/getPermissionList")
     @ResponseBody
     public JsonResponse getPermissionList(HttpServletRequest request){
-        String userId = request.getParameter("userId");
-        String menus = mlwcPermissionService.selectPermissionsByUserId(Integer.valueOf(1));
+        String userId = (String) request.getAttribute("userId");
+        String menus = mlwcPermissionService.selectPermissionsByUserId(Integer.valueOf(userId));
         return new JsonResponse().success(menus);
     }
 }
