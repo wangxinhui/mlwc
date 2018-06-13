@@ -75,7 +75,7 @@ public class MlwcUserController {
 
     @RequestMapping("/del")
     @ResponseBody
-    public JsonResponse delUser(@RequestParam(value = "user_id")String ids) {
+    public JsonResponse delUser(@RequestParam(value = "ids")String ids) {
         int res = mlwcUserService.deleteByPrimaryKeys(ids);
         if (res > 0) {
             return new JsonResponse().success();
